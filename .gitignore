@@ -1,0 +1,7 @@
+local-installers/
+.DS_Store
+*.log
+.env
+.env.*
+*.sqlite
+*.sqlite-*
