@@ -104,7 +104,7 @@ Do **not** uninstall to update. Your data stays on your computer.
 
 ## 💬 Need help?
 
-[![WhatsApp](https://img.shields.io/badge/WhatsApp-+91_6361038126-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/916361038126)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-+91_6361038126-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/9779808422743)
 [![Phone](https://img.shields.io/badge/Phone-+977_9808422743-0078D4?style=for-the-badge&logo=phone&logoColor=white)](tel:+9779808422743)
 [![Email](https://img.shields.io/badge/Email-mykhatanepal.app@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mykhatanepal.app@gmail.com)
 
