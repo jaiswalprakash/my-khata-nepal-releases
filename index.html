@@ -36,25 +36,25 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12}
 .bar-download:hover{background:#FFD16A;transform:translateY(-1px)}
 
 /* hero */
-.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;padding-top:72px}
-h1{font-size:clamp(2.3rem,4.8vw,3.7rem);letter-spacing:-.015em}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding-top:48px;padding-bottom:56px}
+h1{font-size:clamp(2rem,3.2vw,2.75rem);letter-spacing:-.02em}
 .ne{margin-top:18px;color:var(--crimson);font-weight:600;font-size:1.2rem}
 .lead{margin-top:16px;font-size:1.2rem;color:var(--muted);max-width:30em}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:12px 28px;background:var(--crimson);color:var(--white);font:700 1.1rem var(--sans);text-decoration:none;border-radius:8px;border:0;cursor:pointer;transition:background .15s}
 .btn:hover{background:var(--crimson-dark)}
-.cta{margin-top:30px}
+.cta{margin-top:22px}
 .cta-note{margin-top:12px;color:var(--muted);font-size:1rem}
 .download-heading{font-size:1.35rem}
-.download-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
-.download-link{display:flex;flex-direction:column;justify-content:center;min-height:100px;padding:14px 16px;border:2px solid var(--navy);border-radius:8px;background:var(--white);color:var(--navy);text-decoration:none;line-height:1.3;transition:border-color .15s,background .15s,transform .15s}
-.download-link:hover{border-color:var(--crimson);background:#FFF7F7;transform:translateY(-2px)}
+.download-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+.download-link{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;min-height:58px;padding:12px 16px;border:2px solid var(--navy);border-radius:8px;background:var(--white);color:var(--navy);text-decoration:none;line-height:1.2;transition:border-color .15s,background .15s,transform .15s}
+.download-link:hover{border-color:var(--crimson);background:#FFF7F7;transform:translateY(-1px)}
 .download-link:first-child{border-color:var(--crimson);background:var(--crimson);color:var(--white)}
 .download-link:first-child:hover{border-color:var(--crimson-dark);background:var(--crimson-dark)}
 .download-link:first-child small{color:#FFE4E8}
 .download-link:nth-child(2){border-color:var(--gold);background:#FFF3D6}
 .download-link:nth-child(2):hover{background:#FFECB8}
-.download-link strong{font-size:1rem}
-.download-link small{margin-top:4px;color:var(--muted);font-size:.9rem}
+.download-link strong{font-size:1.05rem}
+.download-link small{margin-top:0;color:var(--muted);font-size:.95rem;white-space:nowrap}
 .all-releases{display:inline-block;margin-top:8px;color:var(--navy-2);font-weight:700}
 
 /* demo */
@@ -127,9 +127,8 @@ summary{font-weight:700}
 .lines h3 small,.keep h3 small{display:block;font:600 .92rem var(--sans);color:var(--crimson);margin-top:3px;letter-spacing:0}
 .keep h3 small{color:var(--gold)}
 .keep div{border-top-color:var(--gold)}
-@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:44px}.steps,.keep{grid-template-columns:1fr;gap:36px}.lines li{grid-template-columns:1fr;gap:4px}}
-@media(max-width:700px){.download-grid{grid-template-columns:1fr}}
-@media(max-width:520px){.bar .in{padding:10px 14px;gap:10px}.mark{width:38px;height:38px}.name{font-size:1.1rem}.name small{font-size:.78rem}.bar-download{min-height:42px;padding:7px 12px}.wrap{padding:60px 18px 60px 46px}.wrap::before{left:18px}.add{grid-template-columns:1fr}.btn{width:100%}}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:36px;align-items:start}.steps,.keep{grid-template-columns:1fr;gap:36px}.lines li{grid-template-columns:1fr;gap:4px}}
+@media(max-width:520px){.bar .in{padding:10px 14px;gap:10px}.mark{width:38px;height:38px}.name{font-size:1.1rem}.name small{font-size:.78rem}.bar-download{min-height:42px;padding:7px 12px}.wrap{padding:48px 18px 48px 46px}.wrap::before{left:18px}.hero .wrap{padding-top:36px;padding-bottom:40px}.add{grid-template-columns:1fr}.btn{width:100%}.download-link small{white-space:normal;text-align:right}}
 @media(prefers-reduced-motion:no-preference){.rows li.new{animation:ink .6s ease}@keyframes ink{from{background:#FFF1C9}to{background:transparent}}}
 </style>
 <script type="application/ld+json">
@@ -161,13 +160,13 @@ summary{font-weight:700}
         <h2 class="download-heading">Download the latest version</h2>
         <div class="download-grid" aria-label="Choose your download">
           <a class="download-link" id="download-windows" href="https://github.com/jaiswalprakash/my-khata-nepal-releases/releases/latest">
-            <strong>Windows 10 / 11</strong><small>Download 64-bit installer · .exe</small>
+            <strong>Windows 10 / 11</strong><small>64-bit installer · .exe</small>
           </a>
           <a class="download-link" id="download-mac-arm64" href="https://github.com/jaiswalprakash/my-khata-nepal-releases/releases/latest">
-            <strong>Mac · Apple Silicon</strong><small>Download for M1, M2, M3, M4 · .dmg</small>
+            <strong>Mac · Apple Silicon</strong><small>M1, M2, M3, M4 · .dmg</small>
           </a>
           <a class="download-link" id="download-mac-x64" href="https://github.com/jaiswalprakash/my-khata-nepal-releases/releases/latest">
-            <strong>Mac · Intel</strong><small>Download for Intel processor · .dmg</small>
+            <strong>Mac · Intel</strong><small>Intel processor · .dmg</small>
           </a>
         </div>
         <p class="cta-note" id="download-status" role="status" aria-live="polite">Loading latest release…</p>
