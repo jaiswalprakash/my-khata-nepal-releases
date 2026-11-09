@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Khata Nepal: Offline Khata and Billing App</title>
+<meta name="description" content="Customer khata, VAT bills, suppliers, expenses and staff salary in one offline app for Nepali shops. Your data stays on your computer. Windows and Mac.">
+<meta name="theme-color" content="#14245C">
+<meta property="og:title" content="My Khata Nepal: Offline Khata and Billing App">
+<meta property="og:description" content="Customer khata, VAT bills, suppliers, expenses and staff salary in one offline app. Your data stays on your computer.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2314245C'/><rect x='16' y='11' width='34' height='42' rx='3' fill='white'/><path d='M25 11v42M29 11v42' stroke='%23DE2A48' stroke-width='2'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--crimson:#DE2A48;--crimson-dark:#B91C38;--navy:#14245C;--navy-2:#2B4AA0;--white:#fff;--rule:#DCE3F2;--gold:#FFB627;--muted:#4A5878;
+--serif:"Plus Jakarta Sans","Mukta",system-ui,sans-serif;--sans:"Mukta",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-size:1.1rem;line-height:1.65;color:var(--navy);background:var(--white)}
+:focus-visible{outline:3px solid var(--crimson);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12}
+.wrap{max-width:1120px;margin:0 auto;padding:84px 24px 84px 76px;position:relative}
+.wrap::before{content:"";position:absolute;left:36px;top:0;bottom:0;border-left:6px double var(--crimson)}
+.paper{background:repeating-linear-gradient(transparent 0 35px,#EEF3FC 35px 36px)}
+
+/* brand bar */
+.bar{background:var(--navy);color:var(--white)}
+.bar .in{max-width:1120px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:14px}
+.mark{width:44px;height:44px;flex:none}
+.name{font-family:var(--serif);font-size:1.4rem;line-height:1.1}
+.name small{display:block;font:600 .9rem var(--sans);color:#B9C6E6;margin-top:2px}
+.bar-download{margin-left:auto;display:inline-flex;align-items:center;gap:9px;min-height:46px;padding:8px 16px;background:var(--gold);color:var(--navy);font:700 1rem var(--sans);text-decoration:none;border-radius:6px;white-space:nowrap;transition:background .15s,transform .15s}
+.bar-download::after{content:"↓";font-size:1.25rem;line-height:1}
+.bar-download:hover{background:#FFD16A;transform:translateY(-1px)}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;padding-top:72px}
+h1{font-size:clamp(2.3rem,4.8vw,3.7rem);letter-spacing:-.015em}
+.ne{margin-top:18px;color:var(--crimson);font-weight:600;font-size:1.2rem}
+.lead{margin-top:16px;font-size:1.2rem;color:var(--muted);max-width:30em}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:12px 28px;background:var(--crimson);color:var(--white);font:700 1.1rem var(--sans);text-decoration:none;border-radius:8px;border:0;cursor:pointer;transition:background .15s}
+.btn:hover{background:var(--crimson-dark)}
+.cta{margin-top:30px}
+.cta-note{margin-top:12px;color:var(--muted);font-size:1rem}
+.download-heading{font-size:1.35rem}
+.download-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.download-link{display:flex;flex-direction:column;justify-content:center;min-height:100px;padding:14px 16px;border:2px solid var(--navy);border-radius:8px;background:var(--white);color:var(--navy);text-decoration:none;line-height:1.3;transition:border-color .15s,background .15s,transform .15s}
+.download-link:hover{border-color:var(--crimson);background:#FFF7F7;transform:translateY(-2px)}
+.download-link:first-child{border-color:var(--crimson);background:var(--crimson);color:var(--white)}
+.download-link:first-child:hover{border-color:var(--crimson-dark);background:var(--crimson-dark)}
+.download-link:first-child small{color:#FFE4E8}
+.download-link:nth-child(2){border-color:var(--gold);background:#FFF3D6}
+.download-link:nth-child(2):hover{background:#FFECB8}
+.download-link strong{font-size:1rem}
+.download-link small{margin-top:4px;color:var(--muted);font-size:.9rem}
+.all-releases{display:inline-block;margin-top:8px;color:var(--navy-2);font-weight:700}
+
+/* demo */
+.demo{background:var(--white);border:2px solid var(--navy);border-radius:10px;box-shadow:8px 8px 0 var(--navy);padding:22px}
+.demo h2{font-size:1.25rem}
+.hint{font-size:.98rem;color:var(--muted);margin:4px 0 12px}
+.rows{list-style:none;padding:0;min-height:152px}
+.rows li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule)}
+.rows b{font-weight:600}
+.owe{color:var(--crimson);font-weight:700;white-space:nowrap}
+.clear{color:var(--navy-2);font-weight:700;white-space:nowrap}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin:14px 0 16px;font-family:var(--serif);font-size:1.25rem}
+.total output{color:var(--crimson)}
+.add{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.add input,.add select{font:inherit;font-size:1rem;min-height:46px;padding:8px 12px;border:2px solid var(--rule);border-radius:6px;color:var(--navy);background:var(--white);width:100%}
+.add input:focus,.add select:focus{border-color:var(--navy);outline:none}
+.add button{grid-column:1/-1;min-height:46px;background:var(--navy);color:var(--white);font:700 1rem var(--sans);border:0;border-radius:6px;cursor:pointer}
+.add button:hover{background:var(--navy-2)}
+.err{grid-column:1/-1;color:var(--crimson);font-size:.95rem;min-height:1.2em}
+
+/* content */
+h2.big{font-size:clamp(1.8rem,3.4vw,2.5rem);max-width:20em}
+.sub{margin-top:12px;color:var(--muted);max-width:36em}
+.lines{margin-top:34px;list-style:none;padding:0;max-width:920px}
+.lines li{display:grid;grid-template-columns:250px 1fr;gap:24px;padding:18px 0;border-top:1px solid var(--rule)}
+.lines li:last-child{border-bottom:1px solid var(--rule)}
+.lines h3{font-size:1.2rem}
+.lines p{color:var(--muted)}
+.lines code,.spec{font:600 .95rem ui-monospace,Menlo,Consolas,monospace;background:#EEF3FC;padding:1px 7px;border-radius:4px;color:var(--navy)}
+
+.data{background:var(--navy);color:var(--white)}
+.data .sub{color:#C3CFEC}
+.data .wrap::before{border-color:var(--crimson)}
+.keep{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.keep div{border-top:4px solid var(--crimson);padding-top:16px}
+.keep h3{font-size:1.2rem;margin-bottom:6px}
+.keep p{color:#C3CFEC}
+
+.steps{margin-top:34px;list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;counter-reset:s}
+.steps li{counter-increment:s;border-top:4px solid var(--navy);padding-top:20px;position:relative}
+.steps li::before{content:counter(s);position:absolute;top:-21px;left:0;width:38px;height:38px;border-radius:50%;background:var(--crimson);color:var(--white);display:grid;place-items:center;font-weight:700}
+.steps h3{font-size:1.2rem;margin-bottom:6px}
+.steps p{color:var(--muted)}
+
+.faq{max-width:820px}
+details{border-top:1px solid var(--rule);padding:18px 0}
+details:last-of-type{border-bottom:1px solid var(--rule)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-family:var(--serif);font-size:1.2rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--crimson);font-size:1.6rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{margin-top:10px;color:var(--muted);max-width:44em}
+
+.final{background:var(--navy);color:var(--white)}
+.final .wrap{padding-top:76px;padding-bottom:60px}
+.final h2{font-size:clamp(1.8rem,3.4vw,2.5rem);max-width:18em}
+.final .cta-note{color:#BCC8E6}
+.legal{margin-top:40px;font-size:.95rem;color:#A5B3D6}
+
+
+/* Dhaka-topi inspired band */
+.dhaka{height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14'%3E%3Crect width='28' height='14' fill='%2314245C'/%3E%3Cpath d='M14 1l7 6-7 6-7-6z' fill='%23DE2A48'/%3E%3Cpath d='M14 4l3 3-3 3-3-3z' fill='%23FFB627'/%3E%3Cpath d='M0 0l7 7-7 7zM28 0l-7 7 7 7z' fill='%23fff'/%3E%3C/svg%3E") repeat-x}
+h1,h2{font-weight:800;letter-spacing:-.02em}
+h3{font-weight:700}
+.name{font-weight:800}
+summary{font-weight:700}
+.total{font-weight:800}
+.demo{box-shadow:8px 8px 0 var(--gold)}
+.steps li::before{background:var(--gold);color:var(--navy)}
+.lines h3 small,.keep h3 small{display:block;font:600 .92rem var(--sans);color:var(--crimson);margin-top:3px;letter-spacing:0}
+.keep h3 small{color:var(--gold)}
+.keep div{border-top-color:var(--gold)}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:44px}.steps,.keep{grid-template-columns:1fr;gap:36px}.lines li{grid-template-columns:1fr;gap:4px}}
+@media(max-width:700px){.download-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.bar .in{padding:10px 14px;gap:10px}.mark{width:38px;height:38px}.name{font-size:1.1rem}.name small{font-size:.78rem}.bar-download{min-height:42px;padding:7px 12px}.wrap{padding:60px 18px 60px 46px}.wrap::before{left:18px}.add{grid-template-columns:1fr}.btn{width:100%}}
+@media(prefers-reduced-motion:no-preference){.rows li.new{animation:ink .6s ease}@keyframes ink{from{background:#FFF1C9}to{background:transparent}}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Does My Khata Nepal need the internet?","acceptedAnswer":{"@type":"Answer","text":"No. Khata, bills, reports and printing work offline. The internet is used only for app updates and the optional Google Drive backup."}},
+{"@type":"Question","name":"Which computers does it run on?","acceptedAnswer":{"@type":"Answer","text":"64-bit Windows 10 or later, and Macs with Apple Silicon or Intel chips."}},
+{"@type":"Question","name":"What is not included yet?","acceptedAnswer":{"@type":"Answer","text":"Sync between computers, mobile apps, stock management, Excel export and IRD CBMS integration."}}
+]}
+</script>
+</head>
+<body>
+<header class="bar">
+  <div class="in">
+    <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="My Khata Nepal logo"><rect width="64" height="64" rx="14" fill="#fff"/><rect x="15" y="10" width="36" height="44" rx="3" fill="#14245C"/><path d="M25 10v44M29 10v44" stroke="#DE2A48" stroke-width="2.4"/><path d="M35 22h10M35 30h10M35 38h7" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>
+    <div class="name">My Khata Nepal<small lang="ne">मेरो खाता नेपाल</small></div>
+    <a class="bar-download" href="#downloads" aria-label="Choose a Windows or Mac download">Download</a>
+  </div>
+</header>
+<div class="dhaka" aria-hidden="true"></div>
+
+<main>
+<div class="hero paper">
+  <div class="wrap">
+    <div>
+      <h1>Khata, bills and daily accounts for your shop, on your own computer.</h1>
+      <p class="ne" lang="ne">तपाईंको पसलको खाता, तपाईंकै कम्प्युटरमा।</p>
+      <p class="lead">An offline app for small businesses in Nepal. Track customer credit, make VAT bills, and keep your data with you. No internet needed for daily work.</p>
+      <div class="cta" id="downloads">
+        <h2 class="download-heading">Download the latest version</h2>
+        <div class="download-grid" aria-label="Choose your download">
+          <a class="download-link" id="download-windows" href="https://github.com/jaiswalprakash/my-khata-nepal-releases/releases/latest">
+            <strong>Windows 10 / 11</strong><small>Download 64-bit installer · .exe</small>
+          </a>
+          <a class="download-link" id="download-mac-arm64" href="https://github.com/jaiswalprakash/my-khata-nepal-releases/releases/latest">
+            <strong>Mac · Apple Silicon</strong><small>Download for M1, M2, M3, M4 · .dmg</small>
+          </a>
+          <a class="download-link" id="download-mac-x64" href="https://github.com/jaiswalprakash/my-khata-nepal-releases/releases/latest">
+            <strong>Mac · Intel</strong><small>Download for Intel processor · .dmg</small>
+          </a>
+        </div>
+        <p class="cta-note" id="download-status" role="status" aria-live="polite">Loading latest release…</p>
+        <a class="all-releases" href="https://github.com/jaiswalprakash/my-khata-nepal-releases/releases/latest">View release notes and all files</a>
+      </div>
+    </div>
+    <section class="demo" aria-labelledby="dt">
+      <h2 id="dt">Try a khata right here</h2>
+      <p class="hint">Sample entries. Add your own to watch the balance change.</p>
+      <ul class="rows" id="rows"></ul>
+      <p class="total"><span>Customers owe you</span><output id="total" for="rows">रू 0</output></p>
+      <div class="add">
+        <input id="who" type="text" placeholder="Customer name" aria-label="Customer name" maxlength="30">
+        <input id="amt" type="number" min="1" inputmode="numeric" placeholder="Amount in रू" aria-label="Amount in rupees">
+        <select id="kind" aria-label="Entry type"><option value="gave">Gave on credit</option><option value="paid">Received payment</option></select>
+        <button type="button" id="add">Add to sample khata</button>
+        <p class="err" id="err" role="alert"></p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2 class="big">Everything a small shop keeps track of.</h2>
+    <ul class="lines">
+      <li><h3>Customer khata<small lang="ne">ग्राहक खाता</small></h3><p>Each customer has their own account with running balances. Search by name or phone, filter by Nepali month or fiscal year, and print a statement.</p></li>
+      <li><h3>Estimates and tax invoices<small lang="ne">अनुमान तथा कर बीजक</small></h3><p>Make an Estimate with no PAN or VAT, or a Tax Invoice with PAN and 13% VAT. Numbers restart each fiscal year, like <span class="spec">INV-083/84-0001</span>. Every bill shows Unpaid, Partly paid or Paid.</p></li>
+      <li><h3>Suppliers and expenses<small lang="ne">आपूर्तिकर्ता र खर्च</small></h3><p>Record purchases, pay now or later, and see what you owe each supplier. Log one-time business expenses by category.</p></li>
+      <li><h3>Daily sales<small lang="ne">दैनिक बिक्री</small></h3><p>Walk-in sales are saved fully paid and never touch the khata.</p></li>
+      <li><h3>Staff attendance and salary<small lang="ne">कर्मचारी हाजिरी र तलब</small></h3><p>Mark Present or Absent each day. Salary is worked out for the Nepali month, and part payments reduce what is left.</p></li>
+      <li><h3>Reports and printing<small lang="ne">प्रतिवेदन र प्रिन्ट</small></h3><p>Reports for any period, by Nepali month, fiscal quarter or year. Preview, print or save as PDF.</p></li>
+      <li><h3>More than one business<small lang="ne">एकभन्दा बढी व्यवसाय</small></h3><p>Switch between businesses. Each keeps its own customers, bills and records.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="data">
+  <div class="wrap">
+    <h2 class="big">Your records stay with you.</h2>
+    <p class="sub">Nothing is uploaded unless you choose to back up.</p>
+    <div class="keep">
+      <div><h3>On your computer<small lang="ne">तपाईंको कम्प्युटरमा</small></h3><p>Your khata is stored on your own computer and works offline.</p></div>
+      <div><h3>Optional Google Drive backup<small lang="ne">वैकल्पिक गुगल ड्राइभ ब्याकअप</small></h3><p>Connect Google Drive for a daily encrypted copy in your own account.</p></div>
+      <div><h3>Password at startup<small lang="ne">सुरुमै पासवर्ड</small></h3><p>The app asks for your password every time it opens. A recovery key resets it if you forget.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="paper">
+  <div class="wrap">
+    <h2 class="big">Made for how Nepal does business.</h2>
+    <ul class="lines">
+      <li><h3>Nepali dates</h3><p>Dates show in BS next to AD, and months follow the Nepali calendar.</p></li>
+      <li><h3>Nepali number grouping</h3><p>Amounts group as you type, like 18,90,000, with up to two paisa digits.</p></li>
+      <li><h3>English first, Nepali beneath</h3><p>Menus, buttons, reports and printed documents show both languages. Names and notes you type are never changed.</p></li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="#downloads">Choose your download</a>
+      <p class="cta-note">Windows installer and Mac downloads for Apple Silicon and Intel.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="big">Installed in a few minutes.</h2>
+    <ol class="steps">
+      <li><h3>Download the installer</h3><p>Choose Windows, or the Mac file for Apple Silicon or Intel.</p></li>
+      <li><h3>Install and set a password</h3><p>Run the installer, open the app and create your business profile.</p></li>
+      <li><h3>Add your first customer</h3><p>Open their account and record the first entry.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="paper">
+  <div class="wrap">
+    <h2 class="big">Questions before you install.</h2>
+    <div class="faq">
+    <details><summary>Does it need the internet?</summary><p>No. Khata, bills, reports and printing work offline. The internet is used only for updates and the optional Google Drive backup.</p></details>
+    <details><summary>Which computers does it run on?</summary><p>64-bit Windows 10 or later, and Macs with Apple Silicon or Intel chips. Windows 7, 8 and 8.1 are not supported.</p></details>
+    <details><summary>My computer warns me before opening the app. Is that normal?</summary><p>Yes, for now. The installers are not yet signed with a paid certificate. On Windows choose “More info”, then “Run anyway”. On Mac, right-click the app and choose Open, or approve it in Privacy &amp; Security.</p></details>
+    <details><summary>How do updates work?</summary><p>On Windows, the app downloads updates in the background and offers “Restart now”. On Mac it shows “Update available” and opens the download page. Back up before updating.</p></details>
+    <details><summary>Is my data encrypted?</summary><p>Google Drive backups are encrypted. The data file on your computer is not, so keep your computer protected and your backups current.</p></details>
+    <details><summary>What is not included yet?</summary><p>Sync between computers, mobile apps, stock management, Excel export and IRD CBMS integration. Tax invoices use a basic IRD layout without online sync.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Put your khata on your computer today.</h2>
+    <div class="cta">
+      <a class="btn" href="#downloads">Choose your download</a>
+      <p class="cta-note">Windows installer and Mac downloads for Apple Silicon and Intel.</p>
+    </div>
+    <p class="legal">© <span id="yr">2026</span> My Khata Nepal</p>
+  </div>
+</section>
+<div class="dhaka" aria-hidden="true"></div>
+</main>
+
+<script>
+(function(){
+  var fmt=function(n){return "रू "+Number(n).toLocaleString("en-IN")};
+  var data=[{n:"Sita Kirana Pasal",a:4250},{n:"Hari Prasad",a:18900},{n:"Ram Bahadur",a:2000}];
+  var rows=document.getElementById("rows"),total=document.getElementById("total"),err=document.getElementById("err");
+  function render(f){
+    rows.textContent="";var sum=0;
+    data.forEach(function(d,i){
+      sum+=d.a;
+      var li=document.createElement("li"),b=document.createElement("b"),s=document.createElement("span");
+      b.textContent=d.n;s.textContent=d.a>0?fmt(d.a)+" due":"Settled";s.className=d.a>0?"owe":"clear";
+      li.appendChild(b);li.appendChild(s);if(f&&i===f.i)li.className="new";rows.appendChild(li);
+    });
+    total.textContent=fmt(sum);
+  }
+  document.getElementById("add").addEventListener("click",function(){
+    var name=document.getElementById("who").value.trim(),amt=parseInt(document.getElementById("amt").value,10),kind=document.getElementById("kind").value;
+    if(!name||!(amt>0)){err.textContent="Enter a name and an amount to add an entry.";return}
+    err.textContent="";
+    var idx=-1;data.forEach(function(d,i){if(d.n.toLowerCase()===name.toLowerCase())idx=i});
+    if(idx<0){data.push({n:name,a:0});idx=data.length-1}
+    data[idx].a=Math.max(0,data[idx].a+(kind==="gave"?amt:-amt));
+    render({i:idx});
+    document.getElementById("who").value="";document.getElementById("amt").value="";
+  });
+  render();
+  try{
+    document.getElementById("yr").textContent=new Date().getFullYear();
+    var releaseUrl="https://api.github.com/repos/jaiswalprakash/my-khata-nepal-releases/releases/latest";
+    var downloadsUrl="https://github.com/jaiswalprakash/my-khata-nepal-releases/releases/latest";
+    fetch(releaseUrl,{headers:{Accept:"application/vnd.github+json"}}).then(function(response){
+      if(!response.ok)throw new Error("Latest release unavailable");
+      return response.json();
+    }).then(function(release){
+      var assets=release.assets||[];
+      var files={
+        windows:assets.find(function(asset){return /^My-Khata-Nepal-Setup-.+\.exe$/.test(asset.name)}),
+        arm64:assets.find(function(asset){return /^My-Khata-Nepal-.+-arm64\.dmg$/.test(asset.name)}),
+        x64:assets.find(function(asset){return /^My-Khata-Nepal-.+-x64\.dmg$/.test(asset.name)})
+      };
+      if(files.windows)document.getElementById("download-windows").href=files.windows.browser_download_url;
+      if(files.arm64)document.getElementById("download-mac-arm64").href=files.arm64.browser_download_url;
+      if(files.x64)document.getElementById("download-mac-x64").href=files.x64.browser_download_url;
+      var status=document.getElementById("download-status");
+      if(files.windows&&files.arm64&&files.x64){
+        status.textContent="Latest published release: "+release.tag_name;
+      }else{
+        status.textContent="Some downloads are unavailable. Use the release page to see all files.";
+      }
+    }).catch(function(){
+      document.getElementById("download-status").textContent="Direct downloads are temporarily unavailable. Use the release page to see all files.";
+    });
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
